@@ -11,9 +11,9 @@ class Triangle
 
  def kind
      validate_triangle
-     if a_side == b_side && b_side == c_side
+     if a == b && b == c
        :equilateral
-     elsif a_side == b_side || b_side == c_side || c_side == a_side
+     elsif a == b || b == c || c == a
        :isosceles
      else
        :scalene
@@ -23,12 +23,12 @@ class Triangle
 
     def validate_triangle
       valid_triangle = [
-        (a_side + b_side > c_side),
-        (a_side + c_side > b_side),
-        (b_side + c_side > a_side)
+        (a + b > c),
+        (a + c > b),
+        (b + c > a)
       ]
-      [a_side, b_side, c_side].each do |side|
-        valid_triangle << false if side <= 0
+      [a, b, c].each do |x|
+        valid_triangle << false if x <= 0
         raise TriangleError if valid_triangle.include?(false)
       end
     end
