@@ -9,16 +9,16 @@ class Triangle
  end
 
 
-  def kind
-    validate_triangle
-    if @a == @b && @b == @c
-      :equilateral
-    elsif @a == @b || @a == @c || @b == @c
-        :isosceles
-      else
-        :scalene
-      end
-    end
+ def kind
+     validate_triangle
+     if a_side == b_side && b_side == c_side
+       :equilateral
+     elsif a_side == b_side || b_side == c_side || c_side == a_side
+       :isosceles
+     else
+       :scalene
+     end
+
 
     def validate_triangle
       valid_triangle = [
