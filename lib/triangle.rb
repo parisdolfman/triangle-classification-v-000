@@ -11,9 +11,9 @@ class Triangle
 
   def kind
     valid
-    if a == b && b == c
+    if @a == @b && @b == @c
       :equilateral
-    elsif a == b || a == c || b == c
+    elsif @a == @b || @a == @c || @b == @c
         :isosceles
       else
         :scalene
@@ -21,7 +21,7 @@ class Triangle
     end
 
   def valid
-    valid = [(a+b > c), (a +c > b), (b +c > a)]
+    valid = [(a + b > c), (a + c > b), (b + c > a)]
     [a, b, c].each {|x| valid << false if x <= 0}
     raise TriangleError if valid.include?(false)
   end
