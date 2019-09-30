@@ -10,9 +10,8 @@ class Triangle
 
 
   def kind
-    if !valid?
-      raise TriangleError
-    elsif @a == @b && @b == @c
+    validate_triangle
+    if @a == @b && @b == @c
       :equilateral
     elsif @a == @b || @a == @c || @b == @c
         :isosceles
