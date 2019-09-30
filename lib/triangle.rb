@@ -21,11 +21,17 @@ class Triangle
       end
     end
 
-  def valid?
-    valid = [(a + b > c), (a + c > b), (b + c > a)]
-    [a, b, c].each {|x| valid << false if x <= 0}
-    raise TriangleError if valid.include?(false)
-  end
+    def validate_triangle
+      valid_triangle = [
+        (a_side + b_side > c_side),
+        (a_side + c_side > b_side),
+        (b_side + c_side > a_side)
+      ]
+      [a_side, b_side, c_side].each do |side|
+        valid_triangle << false if side <= 0
+        raise TriangleError if valid_triangle.include?(false)
+      end
+    end
 
 
 class TriangleError < StandardError
